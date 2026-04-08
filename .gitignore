@@ -9,3 +9,14 @@ server.Presentation/server.Presentation/bin
 server.Presentation/server.Presentation/obj
 server.Presentation/server.Presentation/appsettings.json
 server.Presentation/server.Domain/obj
+server/.vs
+server/server.Application/bin
+server/server.Application/obj
+server/server.Domain/bin
+server/server.Domain/obj
+server/server.Infrastructure/bin
+server/server.Presentation/bin
+server/server.Presentation/obj
+server/server.Presentation/appsettings.json
+server/server.Infrastructure/obj
+server/server.Infrastructure/Migrations
