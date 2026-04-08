@@ -68,36 +68,59 @@ Pending → Processing → Completed / Failed
 ## Database Design
 
 ### Orders
-- Id
-- UserId
-- Status
-- TotalAmount
-- CreatedAt
+
+| Column       | Type        | Description                  |
+|-------------|------------|------------------------------|
+| Id          | Guid (PK)  | Unique order identifier      |
+| UserId      | Guid (FK)  | Reference to user            |
+| Status      | int        | Order status                 |
+| TotalAmount | decimal    | Total price of the order     |
+| CreatedAt   | datetime   | Order creation time          |
+
+---
 
 ### OrderItems
-- Id
-- OrderId
-- ProductId
-- Quantity
-- Price
+
+| Column     | Type        | Description                  |
+|-----------|------------|------------------------------|
+| Id        | Guid (PK)  | Unique identifier            |
+| OrderId   | Guid (FK)  | Reference to order           |
+| ProductId | Guid (FK)  | Reference to product         |
+| Quantity  | int        | Quantity of product          |
+| Price     | decimal    | Price at purchase time       |
+
+---
 
 ### Products
-- Id
-- Name
-- Price
-- Stock
+
+| Column | Type        | Description              |
+|--------|------------|--------------------------|
+| Id     | Guid (PK)  | Product identifier       |
+| Name   | string     | Product name             |
+| Price  | decimal    | Product price            |
+| Stock  | int        | Available stock quantity |
+
+---
 
 ### Users
-- Id
-- Name
-- Email
+
+| Column | Type        | Description        |
+|--------|------------|--------------------|
+| Id     | Guid (PK)  | User identifier    |
+| Name   | string     | User name          |
+| Email  | string     | User email         |
+
+---
 
 ### MessageLogs
-- Id
-- MessageType
-- Payload
-- Status
-- RetryCount
+
+| Column      | Type        | Description                          |
+|------------|------------|--------------------------------------|
+| Id         | Guid (PK)  | Unique message identifier            |
+| MessageType| string     | Type of message                      |
+| Payload    | text       | Message content                      |
+| Status     | int        | Processing status                    |
+| RetryCount | int        | Number of retry attempts             |
 
 ---
 
@@ -147,20 +170,24 @@ Event-driven systems:
 
 ## Getting Started
 
-1. Clone repo  
+1. Clone repo
+```bash
 git clone https://github.com/your-username/event-driven-orders.git
-
-2. Run RabbitMQ (Docker)  
+```
+2. Run RabbitMQ (Docker)
+```bash
 docker run -d --hostname rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-
-3. Run API  
+```
+3. Run API
+```bash
 cd src/OrderFlow.API  
 dotnet run  
-
-4. Run Worker  
+```
+4. Run Worker
+```bash
 cd src/OrderFlow.Worker  
 dotnet run  
-
+```
 ---
 
 ## Future Improvements
