@@ -1,0 +1,11 @@
+﻿server.Presentation/.vs
+server.Presentation/server.Application/bin
+server.Presentation/server.Application/obj
+server.Presentation/server.Domain/bin
+server.Presentation/server.Infrastructure/bin
+server.Presentation/server.Infrastructure/obj
+server.Presentation/server.Infrastructure/Migrations
+server.Presentation/server.Presentation/bin
+server.Presentation/server.Presentation/obj
+server.Presentation/server.Presentation/appsettings.json
+server.Presentation/server.Domain/obj
