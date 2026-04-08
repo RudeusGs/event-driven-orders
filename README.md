@@ -21,14 +21,18 @@ This project simulates a real-world e-commerce workflow where orders are process
 
 The system follows a 4-layer architecture:
 
-Presentation (API)
-↓  
-Application (Use Cases / Services)  
-↓  
-Domain (Entities, Enums, Business Rules)  
-↓  
-Infrastructure (Database, RabbitMQ, External Services)
-
+```text
+Presentation Layer (API)
+        │
+        ▼
+Application Layer (Use Cases / Services)
+        │
+        ▼
+Domain Layer (Entities, Enums, Business Rules)
+        │
+        ▼
+Infrastructure Layer (Database, RabbitMQ, External Services)
+```
 ---
 
 ## Tech Stack
@@ -43,20 +47,27 @@ Infrastructure (Database, RabbitMQ, External Services)
 
 ## System Flow
 
+```text
 Client
-↓
+  │
+  ▼
 API (Create Order)
-↓
+  │
+  ▼
 Save Order (Pending)
-↓
-Publish Event → RabbitMQ
-↓
+  │
+  ▼
+Publish Event (RabbitMQ)
+  │
+  ▼
 Worker (Consumer)
-↓
+  │
+  ▼
 Process Order (Stock, Payment)
-↓
+  │
+  ▼
 Update Order Status (Completed / Failed)
-
+```
 ---
 
 ## Order Lifecycle
@@ -172,7 +183,7 @@ Event-driven systems:
 
 1. Clone repo
 ```bash
-git clone https://github.com/your-username/event-driven-orders.git
+git clone https://github.com/RudeusGs/event-driven-orders.git
 ```
 2. Run RabbitMQ (Docker)
 ```bash
